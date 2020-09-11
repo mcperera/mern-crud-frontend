@@ -1,0 +1,12 @@
+.col {
+  margin-bottom: 25px;
+}
+
+.title {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+.title:hover {
+  color: blue !important;
+}
