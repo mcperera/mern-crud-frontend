@@ -10,7 +10,7 @@ function UpdateAuthor() {
     getAuthorById(id, (author) => {
       setUpdateAuthor(author);
     });
-  }, []);
+  }, [id]);
 
   function handleChange(event) {
     switch (event.target.name) {

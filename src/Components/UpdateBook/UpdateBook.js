@@ -16,7 +16,7 @@ export default function UpdateBook() {
     fetchAuthors((authorsList) => {
       setAuthors(authorsList);
     });
-  }, []);
+  }, [id]);
 
   function handleChange(event) {
     switch (event.target.name) {
