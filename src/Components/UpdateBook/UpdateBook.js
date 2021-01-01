@@ -42,6 +42,8 @@ export default function UpdateBook() {
     });
   }
 
+  // console.log(updatedBook)
+
   if (!updatedBook) {
     return (
       <div>
@@ -50,37 +52,33 @@ export default function UpdateBook() {
     );
   } else {
     return (
-      <div className='container'>
+      <div className="container">
         <h4>Update Book</h4>
         <br />
         <form onSubmit={onUpdate}>
-          <div className='form-group col-sm-4'>
+          <div className="form-group col-sm-4">
             <input
               value={updatedBook.name}
-              name='name'
-              className='form-control'
-              placeholder='Name of the book'
-              onChange={handleChange}
-            ></input>
+              name="name"
+              className="form-control"
+              placeholder="Name of the book"
+              onChange={handleChange}></input>
           </div>
-          <div className='form-group col-sm-4'>
+          <div className="form-group col-sm-4">
             <input
               value={updatedBook.isbn}
-              name='isbn'
-              className='form-control'
-              placeholder='ISBN'
-              onChange={handleChange}
-            ></input>
+              name="isbn"
+              className="form-control"
+              placeholder="ISBN"
+              onChange={handleChange}></input>
           </div>
-          <div className='form-group col-sm-4'>
+          <div className="form-group col-sm-4">
             <label>Select Author</label>
-            {console.log(updatedBook)}
             <select
               value={updatedBook.author._id}
-              className='form-control'
-              name='author'
-              onChange={handleChange}
-            >
+              className="form-control"
+              name="author"
+              onChange={handleChange}>
               {authors.map((item) => (
                 <option key={item._id} value={item._id}>
                   {`${item.firstName} ${item.lastName}`}
@@ -88,8 +86,8 @@ export default function UpdateBook() {
               ))}
             </select>
           </div>
-          <div className='form-group col-sm-4'>
-            <button type='submit' className='btn btn-dark'>
+          <div className="form-group col-sm-4">
+            <button type="submit" className="btn btn-dark">
               Update
             </button>
           </div>

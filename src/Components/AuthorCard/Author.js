@@ -5,7 +5,8 @@ function Author({ _id, firstName, lastName, row }) {
   function handleDelete() {
     if (window.confirm(`Do you want delete ${firstName} ${lastName}?`)) {
       deleteAuthorById(_id, () => {
-        console.log("Deleted");
+        //console.log("Deleted");
+        window.location = "/authors";
       });
     }
   }
@@ -16,25 +17,23 @@ function Author({ _id, firstName, lastName, row }) {
 
   return (
     <tr>
-      <th scope='row'>{row + 1}</th>
+      <th scope="row">{row + 1}</th>
       <td>{firstName}</td>
       <td>{lastName}</td>
       <td>
-        <div className='btn-group' role='group' aria-label='Basic example'>
+        <div className="btn-group" role="group" aria-label="Basic example">
           <button
-            name='update'
-            type='button'
-            className='btn btn-dark'
-            onClick={handleUpdate}
-          >
+            name="update"
+            type="button"
+            className="btn btn-dark"
+            onClick={handleUpdate}>
             Update
           </button>
           <button
-            name='delete'
-            type='button'
-            className='btn btn-dark'
-            onClick={handleDelete}
-          >
+            name="delete"
+            type="button"
+            className="btn btn-dark"
+            onClick={handleDelete}>
             Delete
           </button>
         </div>

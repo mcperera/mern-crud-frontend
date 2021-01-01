@@ -15,17 +15,17 @@ import BookDetails from "./Components/BookDetails/BookDetails";
 function App() {
   return (
     <Router>
-      <div className='container'>
+      <div className="container">
         <Navbar />
         <br />
-        <Route path='/' exact component={Home} />
-        <Route path='/authors' component={Authors} />
-        <Route path='/CreateAuthor' component={CreateAuthor} />
-        <Route path='/books' exact component={Books} />
-        <Route path='/book/create' component={CreateBook} />
-        <Route path='/books/book/:id' component={BookDetails} />
-        <Route path='/book/update/:id' component={UpdateBook} />
-        <Route path='/author/update/:id' component={UpdateAuthor} />
+        <Route path="/" exact component={Home} />
+        <Route path="/authors" component={Authors} />
+        <Route path="/author/create-author" component={CreateAuthor} />
+        <Route path="/books" exact component={Books} />
+        <Route path="/book/create-book" component={CreateBook} />
+        <Route path="/books/book/:id" component={BookDetails} />
+        <Route path="/book/update/:id" component={UpdateBook} />
+        <Route path="/author/update/:id" component={UpdateAuthor} />
       </div>
     </Router>
   );

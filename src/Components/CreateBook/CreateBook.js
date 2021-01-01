@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { createBook } from "../../actions/book";
 import { fetchAuthors } from "../../actions/authors";
 
@@ -9,12 +9,18 @@ export default function CreateBook() {
     autor: "",
   });
   const [authors, setAuthors] = useState([]);
+  const mountedRef = useRef(true);
 
   useEffect(() => {
     fetchAuthors((authorsList) => {
-      setAuthors(authorsList);
+      if (mountedRef.current) {
+        setAuthors(authorsList);
+      }
     });
-  });
+    return () => {
+      mountedRef.current = false;
+    };
+  }, []);
 
   function handleChange(event) {
     switch (event.target.name) {
@@ -49,36 +55,33 @@ export default function CreateBook() {
   }
 
   return (
-    <div className='container'>
+    <div className={`container`}>
       <h4>Create New Book</h4>
       <br />
       <form onSubmit={onSubmit}>
-        <div className='form-group col-sm-4'>
+        <div className="form-group col-sm-4">
           <input
             value={bookDetails.name}
-            name='name'
-            className='form-control'
-            placeholder='Name of the book'
-            onChange={handleChange}
-          ></input>
+            name="name"
+            className="form-control"
+            placeholder="Name of the book"
+            onChange={handleChange}></input>
         </div>
-        <div className='form-group col-sm-4'>
+        <div className="form-group col-sm-4">
           <input
             value={bookDetails.isbn}
-            name='isbn'
-            className='form-control'
-            placeholder='ISBN'
-            onChange={handleChange}
-          ></input>
+            name="isbn"
+            className="form-control"
+            placeholder="ISBN"
+            onChange={handleChange}></input>
         </div>
-        <div className='form-group col-sm-4'>
+        <div className="form-group col-sm-4">
           <label>Select Author</label>
           <select
             value={bookDetails.author}
-            className='form-control'
-            name='author'
-            onChange={handleChange}
-          >
+            className="form-control"
+            name="author"
+            onChange={handleChange}>
             {authors.map((item) => (
               <option key={item._id} value={item._id}>
                 {`${item.firstName} ${item.lastName}`}
@@ -86,8 +89,8 @@ export default function CreateBook() {
             ))}
           </select>
         </div>
-        <div className='form-group col-sm-4'>
-          <button type='submit' className='btn btn-dark'>
+        <div className="form-group col-sm-4">
+          <button type="submit" className="btn btn-dark">
             Create
           </button>
         </div>
