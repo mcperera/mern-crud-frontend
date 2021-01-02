@@ -6,5 +6,7 @@
 
 ## Links
 
-> 1. site --> https://book-manager-mc.netlify.app/
-> 2. back-end --> https://github.com/mcperera/MERN-CRUD-BACKEND
+> 1. [Site](https://book-manager-mc.netlify.app/)
+> 2. [Back-End](https://github.com/mcperera/MERN-CRUD-BACKEND)
+
+[Site](https://spotify-clone-react-mp.netlify.app/)
